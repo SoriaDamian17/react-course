@@ -6,7 +6,7 @@ class Spinner extends Component {
         return (
             <div className="ui active dimmer">
                 <div className="ui big tet loader">
-                    Loading...
+                    {this.props.text}
                 </div>
             </div>
         )

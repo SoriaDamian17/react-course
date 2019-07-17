@@ -1,39 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SeasonDisplay from './SeasonDisplay';
-import Spinner from './Spinner';
-class App extends React.Component {
+
+class Clock extends React.Component {
 
     state = {
-        latitud: null,
-        errorMessage: ''
+        time: new Date().toLocaleTimeString()
     };
-
+    
     componentDidMount() {
-        window.navigator.geolocation.getCurrentPosition(
-            position => this.setState({latitud: position.coords.latitude}),
-            err => this.setState({errorMessage: err.message})
-        );
-        console.log('Mount');
+        setInterval(() => {
+            this.setState({
+                time: new Date().toLocaleTimeString()
+            });
+        }, 1000)
     }
 
-    get latitud() {
-        return this.state.latitud;
+    getTime() {
+        return this.state.time;
     }
 
     render() {
-        console.log('Render');
-        if (this.state.latitud === null
-        & this.state.errorMessage === '') {
-            return <Spinner></Spinner>;
-        } else {
-            if (this.state.latitud != null) {
-                return <SeasonDisplay latitud={this.latitud}></SeasonDisplay>;
-            } else {
-                return <div>{this.state.errorMessage}</div>;
-            }
-        }
+        return (
+            <div className="time">
+                The time is: {this.getTime()}
+            </div>
+        );
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Clock />, document.querySelector("#root"));
