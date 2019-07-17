@@ -1,0 +1,34 @@
+.icon-left {
+  left: 10px;
+  position: absolute;
+  top: 10px;
+}
+
+.icon-right {
+  bottom: 10px;
+  position: absolute;
+  right: 10px;
+}
+
+.season-display {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.invierno {
+  background-color: aliceblue;
+}
+
+.verano {
+  background-color: orange;
+}
+
+.invierno i {
+  color: blue;
+}
+
+.verano i {
+  color: red;
+}
