@@ -1,9 +1,9 @@
 import React from 'react';
 
-const PostListLess = () => {
+const PostListLess = (props) => {
 
     return (
-        <div>PostListLess</div>
+        <div className="ui relaxes divided list">{props.renderList}</div>
     );
 }
 
